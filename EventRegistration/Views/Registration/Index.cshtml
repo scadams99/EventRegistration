@@ -24,7 +24,9 @@
         </tr>
         <tr>
             <td>Competition:</td>
-            <td>@Html.DropDownList("Competition", new SelectList(ViewBag.Competitions))</td>
+            <td>
+                @Html.DropDownList("CompetitionID", new SelectList(ViewBag.Competitions, "Id", "Name"))  @*specific as to id and value*@
+            </td>
         </tr>
         <tr>
             <td colspan="2"><input type="submit" value="Register" /></td>

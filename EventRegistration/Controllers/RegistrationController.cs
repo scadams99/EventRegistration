@@ -12,13 +12,6 @@ namespace EventRegistration.Controllers
     {
         private IRepository repository; // field for repository
 
-        // create instance
-        /*
-        public RegistrationController()
-        {
-            repository = new DummyRepository(); // not the way to do this. it creates a dependencey and opens up the implementation. Fixed later.
-        }
-         */
         // dependency resolver
         public RegistrationController(IRepository repo)
         {
@@ -27,29 +20,15 @@ namespace EventRegistration.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Competitions = repository.Competitions.Select(e => e.Name);
+            ViewBag.Competitions = repository.Competitions; // Easy because of the use of Entity Framework.
             return View();
         }
 
         [HttpPost]
-        //public ActionResult Index(string name, string homecity, string age, string competition)
-        public ActionResult Index(Registration registration, string competition)    // this uses model binding
+        public ActionResult Index(Registration registration)    
         {
-            /*
-            Registration registration = new Registration
-            {
-                Name = name,
-                HomeCity = homecity,
-                Age = int.Parse(age),
-                Competition = repository.Competitions
-                                        .Where(e => e.Name == competition)
-                                        .FirstOrDefault()
-            };
-            */
-            registration.Competition = repository.Competitions.Where(e => e.Name == competition).FirstOrDefault();
-
-            repository.SaveRegistration(registration);  // defined in the dummy repository.cs
-            return View("RegistrationComplete", registration);  // Name of the view to render and the data to display
+            repository.SaveRegistration(registration);
+            return View("RegistrationComplete", registration);
         }
     }
 }

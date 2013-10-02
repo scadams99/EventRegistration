@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using EventRegistration.Models.Domain.Repository;
 using Ninject;
 using Ninject.Syntax;
+using Ninject.Web.Common;
 
 namespace EventRegistration.Infrastructure
 {
@@ -28,9 +29,10 @@ namespace EventRegistration.Infrastructure
         {
             return ninjectKernel.Bind<T>();
         }
+
         private void AddDefaultBindings()
         {
-            Bind<IRepository>().To<DummyRepository>(); // seems like the only thing that directly references the repository
+            Bind<IRepository>().To<EFRepository>().InRequestScope();
         }
     }
 }

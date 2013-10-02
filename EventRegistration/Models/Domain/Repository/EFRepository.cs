@@ -25,7 +25,7 @@ namespace EventRegistration.Models.Domain.Repository
         }
         public void SaveRegistration(Registration reg)
         {
-            if (reg.ID == 0)
+            if (reg.Id == 0)
             {
                 adapter.Registrations.Add(reg);
                 adapter.Entry(reg).Reference("Competition").Load();
@@ -34,7 +34,7 @@ namespace EventRegistration.Models.Domain.Repository
         }
         public void SaveCompetition(Competition comp)
         {
-            if (comp.ID == 0)
+            if (comp.Id == 0)
             {
                 adapter.Competitions.Add(comp);
                 adapter.Entry(comp).Collection("Registrations").Load();
