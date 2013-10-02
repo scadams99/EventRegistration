@@ -1,0 +1,40 @@
+﻿@model EventRegistration.Models.Domain.Registration
+
+@{
+    ViewBag.Title = "RegistrationComplete";
+}
+
+<h2>RegistrationComplete</h2>
+
+@Model.Name has registered for the @Model.Competition.Name which will be held in
+@Model.Competition.Location on @Model.Competition.Date.ToShortDateString()
+<p />
+<table>
+    <tr>
+        <th colspan="2">Summary</th>
+    </tr>
+    <tr>
+        <td>Competitor:</td>
+        <td>@Html.DisplayFor(m => m.Name)</td>
+    </tr>
+    <tr>
+        <td>Age:</td>
+        <td>@Html.DisplayFor(m => m.Age)</td>
+    </tr>
+    <tr>
+        <td>Home City:</td>
+        <td>@Html.DisplayFor(m => m.HomeCity)</td>
+    </tr>
+    <tr>
+        <td>Competition Name:</td>
+        <td>@Html.DisplayFor(m => m.Competition.Name)</td>
+    </tr>
+    <tr>
+        <td>Competition City:</td>
+        <td>@Html.DisplayFor(m => m.Competition.Location)</td>
+    </tr>
+    <tr>
+        <td>Competition Date:</td>
+        <td>@Model.Competition.Date.ToShortDateString()</td>
+    </tr>
+</table>
