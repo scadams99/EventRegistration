@@ -29,14 +29,14 @@
     }
 
 </h4>
-@*<table>
+<table>
     <tr>
         <th>Name</th>
         <th>Age</th>
         <th>Home City</th>
         <th>Event</th>
     </tr>
-    @foreach (var item in Model)
+    @foreach (var item in Model.ToArray())
     {
         <tr>
             <td>@item.Name</td>
@@ -45,4 +45,4 @@
             <td>@item.Competition.Name</td>
         </tr>
     }
-</table>*@
+</table>
