@@ -30,5 +30,11 @@ namespace EventRegistration.Controllers
             repository.SaveRegistration(registration);
             return View("RegistrationComplete", registration);
         }
+
+        public ActionResult List()
+        {
+            ViewBag.Time = DateTime.Now;
+            return View(repository.Registrations);
+        }
     }
 }

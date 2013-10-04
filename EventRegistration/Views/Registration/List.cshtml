@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Registration>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h4>The query.recordcount is @Model.Count() </h4>
+
+<h5>@ViewBag.Time verses @string.Format("{0:t}", ViewBag.Time)</h5>
+
+@*<h4>There are @Enumerable.Count(Model) registrations</h4>*@
+<br />
+<h4>
+    @switch (Model.Count())
+    {
+        case 0:
+        @:There are no registrations
+            break;
+        case 1:
+        @:There is one registration
+            break;
+        default:
+        <text>
+        There are @Model.Count() registrations.
+            The first of them is for @Model.First().Name at
+            the @Model.First().Competition.Name event.
+            </text>
+            break;
+    }
+
+</h4>
+@*<table>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Home City</th>
+        <th>Event</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Age</td>
+            <td>@item.HomeCity</td>
+            <td>@item.Competition.Name</td>
+        </tr>
+    }
+</table>*@
