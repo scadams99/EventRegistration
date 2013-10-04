@@ -25,7 +25,7 @@ namespace EventRegistration.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(Registration registration)    
+        public ActionResult Index(Registration registration)
         {
             repository.SaveRegistration(registration);
             return View("RegistrationComplete", registration);
@@ -34,7 +34,16 @@ namespace EventRegistration.Controllers
         public ActionResult List()
         {
             ViewBag.Time = DateTime.Now;
-            return View(repository.Registrations);
+            var results = repository.Registrations
+                .Join(repository.Competitions, reg => reg.CompetitionID, comp => comp.Id,
+                (reg, comp) => new { Reg = reg, Comp = comp })
+                .ToArray()
+                .Select(e =>
+                {
+                    e.Reg.Competition = e.Comp;
+                    return e.Reg;
+                });
+            return View(results);
         }
     }
 }

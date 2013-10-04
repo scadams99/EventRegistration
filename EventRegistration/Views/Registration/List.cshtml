@@ -37,7 +37,7 @@
         <th>Event</th>
     </tr>
     @* @foreach (var item in Model.ToArray()) *@
-    @foreach (var item in Model)   <!-- Only works when the web.config EFRepository connection string is set to "MultipleActiveResultSets=true" -->
+    @foreach (var item in Model)
     {
         <tr>
             <td>@item.Name</td>
