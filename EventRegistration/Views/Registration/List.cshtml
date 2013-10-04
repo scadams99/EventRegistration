@@ -36,14 +36,17 @@
         <th>Home City</th>
         <th>Event</th>
     </tr>
-    @* @foreach (var item in Model.ToArray()) *@
-    @foreach (var item in Model)
-    {
+    @{
+        Registration[] regArray = Model.ToArray();
+        int itemCount = regArray.Length;
+        for (int i = 0; i < itemCount; i++)
+        {
         <tr>
-            <td>@item.Name</td>
-            <td>@item.Age</td>
-            <td>@item.HomeCity</td>
-            <td>@item.Competition.Name</td>
+            <td>@regArray[i].Name</td>
+            <td>@regArray[i].Age</td>
+            <td>@regArray[i].HomeCity</td>
+            <td>@regArray[i].Competition.Name</td>
         </tr>
+        }
     }
 </table>
