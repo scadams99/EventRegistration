@@ -3,7 +3,7 @@ namespace EventRegistration.Infrastructure
 {
     public static class ExternalHelpers
     {
-        public static string RegistrationCount(this HtmlHelper html, int i)
+        public static MvcHtmlString RegistrationCount(this HtmlHelper html, int i)
         {
             string result;
             switch (i)
@@ -15,10 +15,10 @@ namespace EventRegistration.Infrastructure
                     result = "There is one registration";
                     break;
                 default:
-                    result = string.Format("There are {0} registrations", i);
+                    result = string.Format("There are {0} registrations<script>alert('Hello')</script>", i);
                     break;
             }
-            return result;
+            return new MvcHtmlString(string.Format("<h2>{0}</h2>", html.Encode(result)));
         }
     }
 }

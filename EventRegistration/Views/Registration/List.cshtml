@@ -1,59 +1,15 @@
 ﻿@model IEnumerable<Registration>
-<script src="~/Scripts/jquery-2.0.3.intellisense.js"></script>
+@using EventRegistration.Infrastructure
+
 @{
     ViewBag.Title = "List";
 }
-
-@helper CreateOrdinal(int index)
-{
-    switch (index.ToString().Last())
-    {
-        case '1':
-            @(index + "st");
-            break;
-        case '2':
-            @(index + "nd");
-            break;
-        case '3':
-            @(index + "rd");
-                   break;
-        default:
-            @(index + "th");
-            break;
-    }
-}
 @section Header {
+
 <h4>The query.recordcount is @Model.Count() </h4>
 
-<script type="text/javascript">
-var light = {
-    brightness: 5, type: 1
-};
-    light.
-</script>
-
-@*<h4>There are @Enumerable.Count(Model) registrations</h4>*@
-<br />
-<h4>
-    @switch (Model.Count())
-    {
-        case 0:
-        @:There are no registrations
-            break;
-        case 1:
-        @:There is one registration
-            break;
-        default:
-        <text>
-        There are @Model.Count() registrations.
-            The first of them is for @Model.First().Name at
-            the @Model.First().Competition.Name event.
-            </text>
-            break;
-    }
-
-</h4>
-    }
+<h4>@Html.RegistrationCount(@Model.Count())</h4>
+}
 <table>
     <tr>
 

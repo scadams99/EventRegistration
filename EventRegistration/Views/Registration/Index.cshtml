@@ -6,9 +6,12 @@
         text-align: center;
     }
 </style>
+@section Header {
 <h4>Registration</h4>
+    }
 @using (Html.BeginForm())
 {
+    @Html.TextArea("myTextArea", "Avalue", 5, 10, null)
     <table>
         <tr>
             <td>Name:</td>
@@ -29,7 +32,16 @@
             </td>
         </tr>
         <tr>
+            <td>A list:</td>
+            <td>
+                @Html.DropDownList("ADropdown", new SelectList(ViewBag.ADropdown, "Value", "Text" ))  @*specific as to id and value*@
+            </td>
+        </tr>
+        <tr>
             <td colspan="2"><input type="submit" value="Register" /></td>
         </tr>
     </table>
 }
+@section Footer {
+    x
+    }

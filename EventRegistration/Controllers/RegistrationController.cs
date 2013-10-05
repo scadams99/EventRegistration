@@ -21,6 +21,25 @@ namespace EventRegistration.Controllers
         public ActionResult Index()
         {
             ViewBag.Competitions = repository.Competitions; // Easy because of the use of Entity Framework.
+           
+            List<SelectListItem> items = new List<SelectListItem>();
+            items.Add(new SelectListItem
+            {
+                Text = "Swimming",
+                Value = "1"
+            });
+            items.Add(new SelectListItem
+            {
+                Text = "Cycling",
+                Value = "2",
+                Selected = true
+            });
+            items.Add(new SelectListItem
+            {
+                Text = "Running",
+                Value = "3"
+            });
+            ViewBag.ADropdown = items;
             return View();
         }
 
