@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Registration>
-
+<script src="~/Scripts/jquery-2.0.3.intellisense.js"></script>
 @{
     ViewBag.Title = "List";
 }
@@ -22,10 +22,15 @@
             break;
     }
 }
-
+@section Header {
 <h4>The query.recordcount is @Model.Count() </h4>
 
-<h5>@ViewBag.Time verses @string.Format("{0:t}", ViewBag.Time)</h5>
+<script type="text/javascript">
+var light = {
+    brightness: 5, type: 1
+};
+    light.
+</script>
 
 @*<h4>There are @Enumerable.Count(Model) registrations</h4>*@
 <br />
@@ -48,9 +53,10 @@
     }
 
 </h4>
+    }
 <table>
     <tr>
-        <th>Index</th>
+
         <th>Name</th>
         <th>Age</th>
         <th>Home City</th>
@@ -61,13 +67,11 @@
         int itemCount = regArray.Length;
         for (int i = 0; i < itemCount; i++)
         {
-        <tr>
-            <td>@CreateOrdinal(i + 1)</td>
-            <td>@regArray[i].Name</td>
-            <td>@regArray[i].Age</td>
-            <td>@regArray[i].HomeCity</td>
-            <td>@regArray[i].Competition.Name</td>
-        </tr>
+        @Html.Partial("RegistrationTableRow", regArray[i])
         }
     }
 </table>
+
+@section Footer {
+<h5>@ViewBag.Time verses @string.Format("{0:t}", ViewBag.Time)</h5>
+    }
