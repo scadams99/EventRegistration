@@ -28,12 +28,12 @@
 </head>
 <body>
     <h1>A layout2</h1>
-    @RenderSection("Header")
+    @RenderSection("Header", required:false)
     <hr />
     <div>
         @RenderBody()
     </div>
     <hr />
-    @RenderSection("Footer")
+    @RenderSection("Footer", required:false)
 </body>
 </html>

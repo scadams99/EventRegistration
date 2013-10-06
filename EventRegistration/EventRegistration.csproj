@@ -125,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Controllers\CompetitionController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -137,6 +138,7 @@
     <Compile Include="Models\Domain\Repository\EFAdapter.cs" />
     <Compile Include="Models\Domain\Repository\EFRepository.cs" />
     <Compile Include="Models\Domain\Repository\IRepository.cs" />
+    <Compile Include="Models\View\CompetitionSummary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -177,10 +179,11 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\RegistrationTableRow.cshtml" />
+    <Content Include="Views\Competition\Summary.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\City.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\View\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

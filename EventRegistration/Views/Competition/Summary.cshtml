@@ -1,0 +1,49 @@
+﻿@model EventRegistration.Models.View.CompetitionSummary
+
+@{
+    ViewBag.Title = "Summary";
+}
+
+<h2>Summary</h2>
+
+<style type="text/css">
+    td {
+        padding: 5px;
+    }
+
+    th {
+        text-align: left;
+    }
+</style>
+<table>
+    <tr>
+        <th>Label</th>
+        <th>Display</th>
+        <th>Editor</th>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(x => x.Name)</td>
+        <td>@Html.DisplayFor(x => x.Name)</td>
+        <td>@Html.EditorFor(x => x.Name)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(x => x.City)</td>
+        <td>@Html.DisplayFor(x => x.City)</td>
+        <td>@Html.EditorFor(x => x.City)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(x => x.Date)</td>
+        <td>@Html.DisplayFor(x => x.Date)</td>
+        <td>@Html.EditorFor(x => x.Date)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(x => x.Approved)</td>
+        <td>@Html.DisplayFor(x => x.Approved)</td>
+        <td>@Html.EditorFor(x => x.Approved)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(x => x.Start)</td>
+        <td>@Html.DisplayFor(x => x.Start)</td>
+        <td>@Html.EditorFor(x => x.Start)</td>
+    </tr>
+</table>
